@@ -3,8 +3,6 @@ package com.company;
 public class Solver {
 
     public static double[] solvePentaDiagonalMatrix(double[][] matr, double[] f) {
-
-        // Инициализация массивов для хранения прогоночных коэффицентов и результата
         int N = f.length - 1;
         double[] result = new double[N + 1];
         double[] p = new double[N + 1];
@@ -12,7 +10,6 @@ public class Solver {
         double[] delta = new double[N + 1];
         double[] r = new double[N + 2];
 
-        // Прямой ход метода прогонки - вычисление прогоночных коэффицентов
         p[1] = -matr[0][1] / matr[0][0];
         delta[1] = matr[1][1] + matr[1][0] * p[1];
         q[1] = matr[0][2] / matr[0][0];
@@ -37,7 +34,6 @@ public class Solver {
         r[N + 1] = (f[N] - matr[N][N - 2] * r[N - 1] - r[N] * (matr[N][N - 2] * p[N - 1] + matr[N][N - 1])) / delta[N];
 
 
-        // Обратный ход метода прогонки - нахождение решения по реккурентным формулам
         result[N] = r[N + 1];
         result[N - 1] = p[N] * result[N] + r[N];
         for (int i = N - 2; i > -1; i--) {
