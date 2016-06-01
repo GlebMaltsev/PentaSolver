@@ -3,37 +3,19 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        solvePentaDiagonalMatrix(initTestMatrix(), initTestF());
-        System.out.print("Success!");
+        TestProvider.verifyPentaDiagonalSolver();
     }
 
     private static double[][] initMatrix(int N) {
         return new double[N + 1][N + 1];
     }
 
-    private static double[][] initTestMatrix() {
-        return new double[][]{
-                {10, 3, 2, 0, 0},
-                {2, 15, -1, 2, 0},
-                {3, 1, 18, 6, -2},
-                {0, 2, 3, 20, 8},
-                {0, 0, 3, 4, 15}
-        };
-    }
 
     private static double[] initF(int N) {
         return new double[N + 1];
     }
 
-    private static double[] initTestF() {
-        return new double[]{2, 3, 4, 5, 6};
-    }
-
-    private static double[] getTestRealSolve() {
-        return new double[]{0.0998816829, 0.1924625558, 0.211897752, 0.0625980244, 0.3409276431};
-    }
-
-    private static double[] solvePentaDiagonalMatrix(double[][] matr, double[] f) {
+    public static double[] solvePentaDiagonalMatrix(double[][] matr, double[] f) {
         int N = f.length - 1;
         double[] result = new double[N + 1];
         double[] p = new double[N + 1];
