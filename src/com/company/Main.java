@@ -64,6 +64,12 @@ public class Main {
 
         r[N + 1] = (f[N] - matr[N][N - 2] * r[N - 1] - r[N] * (matr[N][N - 2] * p[N - 1] + matr[N][N - 1])) / delta[N];
 
+
+        result[N] = r[N + 1];
+        result[N - 1] = p[N] * result[N] + r[N];
+        for (int i = N - 2; i > -1; i--) {
+            result[i] = p[i + 1] * result[i + 1] - q[i + 1] * result[i + 2] + r[i + 1];
+        }
         return result;
     }
 }
