@@ -15,7 +15,7 @@ public class TestProvider {
     }
 
     private static boolean runTest(double[][] matr, double[] f, double[] realSolution) {
-        double[] calculatedSolution = Main.solvePentaDiagonalMatrix(matr, f);
+        double[] calculatedSolution = Solver.solvePentaDiagonalMatrix(matr, f);
         for (int i = 0; i < calculatedSolution.length; i++) {
             if (Math.abs(calculatedSolution[i] - realSolution[i]) > EPSILON) {
                 return false;
